@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+
+  <!-- Icon: Three stylized grass blades (centered, standalone) -->
+  <g transform="translate(50, 15)">
+    <!-- Left blade - sage green, angled left -->
+    <path d="M 35 170 Q 22 105 10 50 Q 6 30 16 12 Q 24 30 28 50 Q 40 105 45 170 Z"
+          fill="#7A917E" opacity="0.75"/>
+    <!-- Center blade - darker green, tallest -->
+    <path d="M 50 170 Q 48 95 46 30 Q 45 10 50 0 Q 55 10 54 30 Q 52 95 55 170 Z"
+          fill="#5A7A5E"/>
+    <!-- Right blade - gold accent, angled right -->
+    <path d="M 65 170 Q 75 110 88 55 Q 92 35 83 16 Q 75 35 70 55 Q 58 110 55 170 Z"
+          fill="#C5A55A" opacity="0.8"/>
+    <!-- Ground line -->
+    <line x1="5" y1="173" x2="95" y2="173" stroke="#2D3B2D" stroke-width="2" opacity="0.3"/>
+  </g>
+</svg>
