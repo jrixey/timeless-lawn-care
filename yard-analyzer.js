@@ -1,5 +1,5 @@
 // ================================================
-// YARD SCORE — Frontend Logic
+// YARD ANALYZER — Frontend Logic
 // ================================================
 
 // ---- SERVICE AREA ZIP CODES ----
