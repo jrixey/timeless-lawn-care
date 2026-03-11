@@ -3,13 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timeless Lawn Care | North Kansas City's Premier Lawn Service</title>
-    <meta name="description" content="Professional lawn care serving North Kansas City, Gladstone, Parkville & the Northland. Weekly mowing, trimming, edging & seasonal cleanup. Book your free assessment today.">
+    <title>Lawn Care North Kansas City, Gladstone & Parkville | Timeless Lawn Care</title>
+    <meta name="description" content="Professional lawn care serving North Kansas City, Gladstone, Parkville & the Northland. Weekly mowing, trimming, edging & seasonal cleanup. First mow free when you book weekly service.">
+    <meta name="keywords" content="lawn care North Kansas City, lawn mowing Gladstone MO, lawn service Parkville, lawn care Liberty MO, lawn care Northland KC, weekly mowing Gladstone">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="timeless-icon-only.svg">
+    <link rel="preload" as="image" href="photos/Blog Image 3.jpg">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://timelesslawncarellc.com/">
+    <meta property="og:title" content="Timeless Lawn Care | North Kansas City & the Northland">
+    <meta property="og:description" content="Same day, same crew, every week. Professional lawn care serving NKC, Gladstone, Parkville & the Northland. Cuts starting at $40.">
+    <meta property="og:image" content="https://timelesslawncarellc.com/timeless-logo-full.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Timeless Lawn Care | North Kansas City & the Northland">
+    <meta name="twitter:description" content="Same day, same crew, every week. Professional lawn care serving NKC, Gladstone, Parkville & the Northland. Cuts starting at $40.">
+
+    <!-- Schema Markup: LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LawnCareService",
+        "name": "Timeless Lawn Care",
+        "image": "https://timelesslawncarellc.com/timeless-logo-full.svg",
+        "@id": "https://timelesslawncarellc.com",
+        "url": "https://timelesslawncarellc.com",
+        "telephone": "+18162988348",
+        "email": "timelesslawncarellc@pm.me",
+        "priceRange": "$$",
+        "description": "Professional lawn care serving North Kansas City, Gladstone, Parkville and the Northland. Weekly mowing, trimming, edging, seasonal cleanup. Locally owned and operated.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "North Kansas City",
+            "addressRegion": "MO",
+            "postalCode": "64116",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.1336,
+            "longitude": -94.5625
+        },
+        "areaServed": [
+            {"@type": "City", "name": "North Kansas City", "sameAs": "https://en.wikipedia.org/wiki/North_Kansas_City,_Missouri"},
+            {"@type": "City", "name": "Gladstone"},
+            {"@type": "City", "name": "Parkville"},
+            {"@type": "City", "name": "Liberty"},
+            {"@type": "City", "name": "Riverside"},
+            {"@type": "City", "name": "Pleasant Valley"},
+            {"@type": "City", "name": "Weatherby Lake"}
+        ],
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "08:00",
+            "closes": "18:00"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Lawn Care Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Weekly Lawn Mowing",
+                        "description": "Professional weekly mowing including trimming, edging, and blowing"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "One-Time Lawn Service",
+                        "description": "Single-visit mowing and cleanup service"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Spring and Fall Cleanup",
+                        "description": "Seasonal debris removal, bed cleanup, and lawn preparation"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+
+    <!-- Schema Markup: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much does lawn care cost in the Northland Kansas City area?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Standard lots up to 1/4 acre start at $40 for weekly mowing, which includes mowing, string trimming, edging, and blowing all hard surfaces. Larger properties typically fall between $45-$55 per visit. Contact us for a free estimate based on your specific lot."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What areas does Timeless Lawn Care serve?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We serve North Kansas City, Gladstone, Parkville, Liberty, Riverside, Pleasant Valley, Weatherby Lake, and surrounding Platte County communities in the Kansas City Northland."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is included in your weekly mowing service?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Every weekly visit includes mowing the entire lawn, string trimming around all obstacles, edging along driveways and sidewalks, and blowing all hard surfaces clean. We also text you before we arrive and after we finish."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does your lawn care service agreement work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We use a simple service agreement that outlines your schedule, pricing, and what is included with every visit. It keeps things clear for both sides so you always know exactly what to expect."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What if it rains on my scheduled mowing day?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We text you before you have to wonder. If weather pushes your service, we proactively let you know the new day. Your lawn will be mowed within 1-2 business days of the delay."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I pay for lawn care service?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We send a simple invoice after each service. We accept all major payment methods including credit and debit cards, Venmo, Zelle, and cash. No surprise fees or complicated billing portals."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
 
@@ -22,15 +165,19 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#why-us">Why Timeless</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#service-area">Service Area</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="yard-score.html">Yard Score</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li class="nav-phone-mobile"><a href="tel:8162988348">(816) 298-8348</a></li>
             </ul>
             <div class="nav-right">
                 <a href="tel:8162988348" class="nav-phone">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     (816) 298-8348
                 </a>
-                <a href="#contact" class="nav-cta">Free Assessment</a>
+                <a href="#contact" class="nav-cta">Get Your Free Mow</a>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span>
@@ -41,37 +188,97 @@
     </nav>
 
     <!-- Mobile sticky CTA bar -->
-    <div class="mobile-cta-bar">
-        <a href="tel:8162988348" class="mobile-cta-phone">Call Now</a>
-        <a href="#contact" class="mobile-cta-book">Free Assessment</a>
+    <div class="mobile-cta-bar" role="navigation" aria-label="Quick actions">
+        <a href="tel:8162988348" class="mobile-cta-phone" aria-label="Call or text Timeless Lawn Care at 816-298-8348">Call/Text Now</a>
+        <a href="#contact" class="mobile-cta-book" aria-label="Request your free first mow">Free First Mow</a>
     </div>
 
     <!-- ===================== HERO SECTION ===================== -->
     <section class="hero" id="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <p class="hero-tagline">North Kansas City's Northland</p>
-            <h1 class="hero-headline">Your Lawn Deserves<br>More Than a Quick Mow</h1>
-            <p class="hero-sub">Reliable, professional lawn care for homeowners in NKC, Gladstone, Parkville & surrounding communities. Every yard gets the attention it deserves. <strong>Book now for the spring season</strong>.</p>
+            <p class="hero-tagline">North Kansas City & the Northland</p>
+            <h1 class="hero-headline">Same Day. Same Crew.<br>Every Week.</h1>
+            <p class="hero-sub">We show up on the same day every week, text you before we arrive, and follow up when we're done. That's just how we work. Serving NKC, Gladstone, Parkville & the Northland. <strong>Cuts starting at $40</strong>. Book before March 31st and your first mow is free.</p>
             <div class="hero-ctas">
-                <a href="#contact" class="btn btn-primary">Book a Service</a>
-                <a href="#contact" class="btn btn-secondary">Book a Free Assessment</a>
+                <a href="#contact" class="btn btn-primary">Get Your First Mow Free</a>
+                <a href="#services" class="btn btn-secondary">See Our Services</a>
             </div>
             <div class="hero-trust">
                 <span class="trust-item">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    Locally Owned
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Satisfaction Guaranteed
                 </span>
                 <span class="trust-divider"></span>
                 <span class="trust-item">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    Locally Owned &amp; Operated
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg>
+                    Same-Day, Every Week
                 </span>
                 <span class="trust-divider"></span>
                 <span class="trust-item">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                     Serving the Northland
                 </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== HOW IT WORKS ===================== -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <p class="section-tagline">Getting Started</p>
+            <h2 class="section-title">Three Steps to a Better Lawn</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Tell Us About Your Lawn</h3>
+                    <p>Fill out the quick form or call/text us. We'll get back to you within 2 hours with a free quote.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Pick Your Day</h3>
+                    <p>Choose the weekly day that works for your schedule. We'll lock it in and show up consistently.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Enjoy Your Weekends</h3>
+                    <p>We handle the mowing, trimming, and edging. You get a text when we arrive and when we're done.</p>
+                </div>
+            </div>
+            <div class="steps-cta">
+                <a href="#contact" class="btn btn-primary">Get Your Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== THE TIMELESS STANDARD ===================== -->
+    <section class="timeless-standard" id="standard">
+        <div class="container">
+            <p class="section-tagline">The Timeless Standard</p>
+            <h2 class="section-title">You'll Always Know What's Happening</h2>
+            <p class="standard-subtitle">Included with every service at no extra charge.</p>
+            <div class="standard-grid">
+                <div class="standard-card">
+                    <div class="standard-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="13" y2="13"/></svg>
+                    </div>
+                    <h3>Before & After Texts</h3>
+                    <p>We text before we arrive and after we finish. You always know when we're there and when we're done.</p>
+                </div>
+                <div class="standard-card">
+                    <div class="standard-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg>
+                    </div>
+                    <h3>Same-Day Guarantee</h3>
+                    <p>Your lawn gets mowed on the same day every week. Just a great-looking lawn, right on schedule, every single time.</p>
+                </div>
+                <div class="standard-card">
+                    <div class="standard-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16.2A4.5 4.5 0 0 0 17.5 8h-1.8A7 7 0 1 0 4 14.9"/><path d="M16 16l-4-4-4 4"/></svg>
+                    </div>
+                    <h3>Rain Delay Alerts</h3>
+                    <p>Weather changes the plan? We'll text you with the update and your rescheduled day. You'll always know exactly when to expect us.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -87,32 +294,32 @@
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/><path d="M2 12h20"/><path d="M12 6v12"/></svg>
                     </div>
                     <h3>Weekly Mowing</h3>
-                    <p>Consistent, reliable mowing on the same day each week. Includes mowing, string trimming, edging, and blowing, every visit.</p>
+                    <p>Your lawn, mowed on the same day every week. Includes mowing, string trimming, edging, and blowing every surface clean. Cuts starting at $40.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
                     </div>
                     <h3>One-Time Service</h3>
-                    <p>Need a single cut or your yard cleaned up before an event? We'll get your property looking sharp. No commitment required.</p>
+                    <p>Need a single cut before an event or to get your property back in shape? We've got you covered. No commitment required.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 17 3.5s1.5 2.5-.5 6.5c2 0 3.5.5 3.5.5s-1 2.5-4 4c0 2-1 3.5-1 3.5"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 12 13"/></svg>
                     </div>
-                    <h3>Spring &amp; Fall Cleanup</h3>
+                    <h3>Spring & Fall Cleanup</h3>
                     <p>Seasonal debris removal, bed cleanup, leaf clearing, and prep to keep your lawn healthy through KC's toughest transitions.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
                     </div>
-                    <h3>Edging &amp; Trimming</h3>
+                    <h3>Edging & Trimming</h3>
                     <p>Clean lines along driveways, sidewalks, and beds. The details that separate a good-looking lawn from a great one.</p>
                 </div>
             </div>
             <div class="services-cta">
-                <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+                <a href="#contact" class="btn btn-primary">Get Your Free Lawn Assessment</a>
             </div>
         </div>
     </section>
@@ -125,8 +332,8 @@
             <div class="why-grid">
                 <div class="why-card">
                     <div class="why-number">01</div>
-                    <h3>We Actually Show Up</h3>
-                    <p>The #1 complaint about lawn services? They disappear. We mow on the same day, every week, and communicate proactively if weather changes our schedule. No ghosting. Ever.</p>
+                    <h3>Consistent, Every Week</h3>
+                    <p>Your lawn gets mowed on the same day, by the same crew, every single week. We text before we arrive and follow up when we're done. You can set your calendar by us.</p>
                 </div>
                 <div class="why-card">
                     <div class="why-number">02</div>
@@ -136,7 +343,36 @@
                 <div class="why-card">
                     <div class="why-number">03</div>
                     <h3>Local to the Northland</h3>
-                    <p>We live here. We know KC's fescue and bluegrass, the spring rain patterns, the summer heat stress. Your lawn gets care tailored to this climate, not a one-size-fits-all approach.</p>
+                    <p>We live here. We know your fescue and bluegrass handle spring rain, summer heat, and fall recovery differently. Your lawn gets care tailored to this exact climate, not a generic plan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-content">
+                    <p class="section-tagline">About Timeless</p>
+                    <h2 class="section-title">Built in the Northland, for the Northland</h2>
+                    <p>Timeless Lawn Care started with a simple idea: lawn care should be straightforward. You deserve to know when your crew is coming, what they're doing, and that the job will be done right every time.</p>
+                    <p>We're a locally owned team based right here in North Kansas City. We grew up in these neighborhoods, and we take care of them the same way we take care of our own yards. Every lawn we service gets the same attention to detail, the same consistent schedule, and the same clear communication.</p>
+                    <p>We're building this company one lawn at a time, and every customer matters. That's why we back every visit with a satisfaction guarantee. If something isn't right, we come back and make it right.</p>
+                </div>
+                <div class="about-highlights">
+                    <div class="about-highlight">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>Based in North Kansas City</span>
+                    </div>
+                    <div class="about-highlight">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span>Satisfaction guaranteed on every visit</span>
+                    </div>
+                    <div class="about-highlight">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <span>Text updates before and after every service</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -147,36 +383,88 @@
         <div class="container">
             <div class="promo-content">
                 <h2>Your First Mow is On Us</h2>
-                <p>Book weekly service before March 31st and your first mow is completely free. See the quality for yourself. Zero risk.</p>
+                <p>Book weekly service before March 31st and get your first mow completely free. See the quality for yourself before paying a dime. Zero risk. And if you're ever not happy with a visit, we'll come back and make it right.</p>
                 <a href="#contact" class="btn btn-primary btn-light">Claim Your Free Mow</a>
             </div>
         </div>
     </section>
 
-    <!-- ===================== GALLERY / BEFORE & AFTER ===================== -->
-    <section class="gallery" id="gallery">
+    <!-- ===================== FAQ ===================== -->
+    <section class="faq" id="faq">
         <div class="container">
-            <p class="section-tagline">Our Work</p>
-            <h2 class="section-title">See the Difference</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="photos/Blog Image 3.jpg" alt="Freshly mowed lawn with professional striping pattern" loading="lazy">
-                    <div class="gallery-label">Weekly Mowing | Northland KC</div>
-                </div>
-                <div class="gallery-item placeholder">
-                    <div class="placeholder-content">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-                        <span>Before &amp; After Coming Soon</span>
+            <p class="section-tagline">Common Questions</p>
+            <h2 class="section-title">Everything You Need to Know</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1" id="faq-q-1">
+                        <span>How much does lawn care cost in the Northland?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-q-1">
+                        <p>Standard lots (up to 1/4 acre) start at $40 for weekly mowing, which includes mowing, string trimming, edging, and blowing all hard surfaces. Larger properties typically fall between $45-$55 per visit. Contact us for a quick, free estimate based on your specific lot.</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="photos/Blog image 1.jpg" alt="Lush green grass close-up in Kansas City lawn" loading="lazy">
-                    <div class="gallery-label">Healthy Fescue | Spring Growth</div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2" id="faq-q-2">
+                        <span>What's included in your weekly mowing service?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-q-2">
+                        <p>Every visit includes mowing the entire lawn, string trimming around all obstacles (fences, trees, mailboxes, beds), edging along driveways and sidewalks, and blowing all hard surfaces clean. We also text you before we arrive and after we finish so you always know what's happening.</p>
+                    </div>
                 </div>
-                <div class="gallery-item placeholder">
-                    <div class="placeholder-content">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-                        <span>Your Lawn Could Be Here</span>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" id="faq-q-3">
+                        <span>How does your service agreement work?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-q-3">
+                        <p>We use a simple service agreement that outlines your schedule, pricing, and what's included with every visit. It keeps things clear for both sides so you always know exactly what to expect. If you ever need to make changes, just reach out and we'll work with you.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4" id="faq-q-4">
+                        <span>What if it rains on my scheduled mowing day?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-q-4">
+                        <p>We text you as soon as we know. If weather pushes your service back, we proactively let you know the new day. Your lawn will be mowed within 1-2 business days of any weather delay. You'll always have a clear update.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5" id="faq-q-5">
+                        <span>How does the first mow free offer work?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-q-5">
+                        <p>Simple. Sign up for weekly mowing service before March 31st and your very first mow is completely free. We want you to see the quality firsthand before paying a dime. It's the easiest way to try us out.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6" id="faq-q-6">
+                        <span>Do I need to be home for service?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-q-6">
+                        <p>Nope. Most of our customers aren't home when we mow. As long as we can access your yard, we handle everything. You'll get a text when we arrive and when we're done, so you can see the results even if you're at work.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7" id="faq-q-7">
+                        <span>How do I pay?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-7" role="region" aria-labelledby="faq-q-7">
+                        <p>We send a simple invoice after each service. We accept all major payment methods including credit/debit cards, Venmo, Zelle, and cash. No surprise fees, no complicated billing portals.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-8" id="faq-q-8">
+                        <span>What areas do you serve?</span>
+                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-8" role="region" aria-labelledby="faq-q-8">
+                        <p>We serve North Kansas City, Gladstone, Parkville, Liberty, Riverside, Pleasant Valley, Weatherby Lake, and surrounding Platte County communities. If you're in the Northland KC area and don't see your exact neighborhood listed, reach out anyway. We may still be able to help.</p>
                     </div>
                 </div>
             </div>
@@ -187,7 +475,7 @@
     <section class="service-area" id="service-area">
         <div class="container">
             <p class="section-tagline">Where We Work</p>
-            <h2 class="section-title">Proudly Serving the Northland</h2>
+            <h2 class="section-title">Proudly Serving the Northland Kansas City Area</h2>
             <div class="area-grid">
                 <div class="area-item active">North Kansas City</div>
                 <div class="area-item">Gladstone</div>
@@ -198,6 +486,7 @@
                 <div class="area-item">Weatherby Lake</div>
                 <div class="area-item">Platte County</div>
             </div>
+            <p class="area-neighborhoods">Including neighborhoods like Waukomis, Riss Lake, Antioch Hills, Nashua, Crestview, English Landing, and more.</p>
             <p class="area-note">Don't see your area? <a href="#contact">Contact us</a>. We may still be able to help.</p>
         </div>
     </section>
@@ -209,7 +498,7 @@
                 <div class="contact-info">
                     <p class="section-tagline">Get Started</p>
                     <h2 class="section-title">Let's Talk About Your Lawn</h2>
-                    <p class="contact-desc">Whether you're ready to book or just want someone to take a look, we're here. Fill out the form and we'll get back to you within a few hours, usually much faster.</p>
+                    <p class="contact-desc">Ready to book or just want someone to take a look? Fill out the form and we'll get back to you within a few hours, usually much faster.</p>
 
                     <div class="contact-details">
                         <div class="contact-detail">
@@ -233,6 +522,13 @@
                                 <span>Within 2 hours, usually faster</span>
                             </div>
                         </div>
+                        <div class="contact-detail">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            <div>
+                                <strong>Hours</strong>
+                                <span>Mon-Sat, 8am-6pm</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -246,6 +542,10 @@
                         <input type="tel" id="phone" name="phone" required placeholder="(816) 555-1234">
                     </div>
                     <div class="form-group">
+                        <label for="email">Email <span class="optional">(Optional)</span></label>
+                        <input type="email" id="email" name="email" placeholder="you@email.com">
+                    </div>
+                    <div class="form-group">
                         <label for="address">Property Address</label>
                         <input type="text" id="address" name="address" required placeholder="123 Main St, Gladstone, MO">
                     </div>
@@ -253,8 +553,8 @@
                         <label>What Are You Looking For?</label>
                         <div class="service-select">
                             <label class="service-option">
-                                <input type="radio" name="service" value="weekly" checked>
-                                <span class="service-chip">Weekly Mowing</span>
+                                <input type="radio" name="service" value="weekly-free" checked>
+                                <span class="service-chip">First Mow Free (Weekly)</span>
                             </label>
                             <label class="service-option">
                                 <input type="radio" name="service" value="onetime">
@@ -262,11 +562,11 @@
                             </label>
                             <label class="service-option">
                                 <input type="radio" name="service" value="cleanup">
-                                <span class="service-chip">Seasonal Cleanup</span>
+                                <span class="service-chip">Spring/Fall Cleanup</span>
                             </label>
                             <label class="service-option">
-                                <input type="radio" name="service" value="assessment">
-                                <span class="service-chip">Free Assessment</span>
+                                <input type="radio" name="service" value="questions">
+                                <span class="service-chip">Just Have Questions</span>
                             </label>
                         </div>
                     </div>
@@ -274,7 +574,7 @@
                         <label for="message">Anything Else We Should Know? <span class="optional">(Optional)</span></label>
                         <textarea id="message" name="message" rows="3" placeholder="Lot size, special requests, preferred day..."></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-full">Send My Request</button>
+                    <button type="submit" class="btn btn-primary btn-full">Get My Free First Mow</button>
                     <p class="form-note">We'll reach out within 2 hours to confirm details. No spam, no pressure.</p>
                 </form>
             </div>
@@ -285,10 +585,10 @@
     <section class="final-cta">
         <div class="container">
             <h2>Ready to Reclaim Your Weekends?</h2>
-            <p>Spring is right around the corner. Lock in your weekly service and get your first mow free.</p>
+            <p>Spring starts soon. Lock in your spot and get your first mow free. Serving NKC, Gladstone, Parkville, Liberty & the Northland.</p>
             <div class="hero-ctas">
-                <a href="#contact" class="btn btn-primary btn-light">Book a Service</a>
-                <a href="tel:8162988348" class="btn btn-secondary btn-light">Call (816) 298-8348</a>
+                <a href="#contact" class="btn btn-primary btn-light">Claim Your Free First Mow</a>
+                <a href="tel:8162988348" class="btn btn-secondary btn-light">Call/Text (816) 298-8348</a>
             </div>
         </div>
     </section>
@@ -299,15 +599,15 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <img src="timeless-logo-full-dark.svg" alt="Timeless Lawn Care" class="footer-logo">
-                    <p>Professional lawn care for North Kansas City and the Northland. Locally owned and operated.</p>
+                    <p>Professional lawn care for North Kansas City and the Northland. Locally owned and operated. Cuts starting at $40.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Services</h4>
                     <ul>
                         <li><a href="#services">Weekly Mowing</a></li>
                         <li><a href="#services">One-Time Service</a></li>
-                        <li><a href="#services">Spring &amp; Fall Cleanup</a></li>
-                        <li><a href="#services">Edging &amp; Trimming</a></li>
+                        <li><a href="#services">Spring & Fall Cleanup</a></li>
+                        <li><a href="#services">Edging & Trimming</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -326,21 +626,10 @@
                         <li><a href="tel:8162988348">(816) 298-8348</a></li>
                         <li><a href="mailto:timelesslawncarellc@pm.me">timelesslawncarellc@pm.me</a></li>
                     </ul>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Facebook">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                        </a>
-                        <a href="#" aria-label="Instagram">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </a>
-                        <a href="#" aria-label="Google Business">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                        </a>
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Timeless Lawn Care. All rights reserved. North Kansas City, MO.</p>
+                <p>&copy; 2026 Timeless Lawn Care LLC. All rights reserved. North Kansas City, MO.</p>
             </div>
         </div>
     </footer>

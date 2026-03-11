@@ -1,0 +1,572 @@
+/* ================================================
+   YARD SCORE — Styles
+   Extends the v2 design system
+   ================================================ */
+
+/* ---- HERO ---- */
+.ys-hero {
+    padding: 140px 0 60px;
+    background: #FAF8F4;
+    text-align: center;
+}
+
+.ys-hero .section-title {
+    margin-bottom: 16px;
+}
+
+.ys-hero-sub {
+    font-size: 1.1rem;
+    color: #5A5A5A;
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ---- UPLOAD SECTION ---- */
+.ys-upload-section {
+    padding: 0 0 80px;
+    background: #FAF8F4;
+}
+
+.ys-upload-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.ys-form {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* ---- DROPZONE ---- */
+.ys-dropzone {
+    border: 2px dashed rgba(122, 145, 126, 0.35);
+    border-radius: 12px;
+    padding: 48px 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #FAFAFA;
+    margin-bottom: 24px;
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ys-dropzone:hover,
+.ys-dropzone.dragover {
+    border-color: #7A917E;
+    background: rgba(122, 145, 126, 0.05);
+}
+
+.ys-dropzone.has-image {
+    border-style: solid;
+    border-color: #7A917E;
+    padding: 12px;
+    background: #FFFFFF;
+}
+
+.ys-dropzone-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.ys-dropzone-content svg {
+    color: #7A917E;
+}
+
+.ys-dropzone-text {
+    font-size: 1rem;
+    color: #5A5A5A;
+    font-weight: 500;
+}
+
+.ys-browse {
+    color: #C5A55A;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.ys-dropzone-hint {
+    font-size: 0.82rem;
+    color: #999;
+}
+
+/* ---- PREVIEW ---- */
+.ys-preview-container {
+    position: relative;
+    width: 100%;
+}
+
+.ys-preview-container img {
+    width: 100%;
+    max-height: 360px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.ys-remove-photo {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(26, 42, 26, 0.8);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FAF8F4;
+    transition: background 0.2s;
+}
+
+.ys-remove-photo:hover {
+    background: rgba(26, 42, 26, 1);
+}
+
+/* ---- FORM FIELDS ---- */
+.ys-fields {
+    margin-bottom: 24px;
+}
+
+.ys-required {
+    color: #c0392b;
+    font-weight: 600;
+}
+
+.ys-optional-fields {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(122, 145, 126, 0.15);
+}
+
+.ys-optional-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #5A5A5A;
+    margin-bottom: 16px;
+}
+
+.ys-fields-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.ys-submit {
+    font-size: 1rem;
+    padding: 16px 32px;
+}
+
+.ys-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.ys-privacy {
+    text-align: center;
+    font-size: 0.78rem;
+    color: #999;
+    margin-top: 12px;
+}
+
+/* ---- LOADING ---- */
+.ys-loading {
+    padding: 120px 0;
+    background: #FAF8F4;
+    text-align: center;
+}
+
+.ys-loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.ys-loading-content h2 {
+    font-size: 1.8rem;
+}
+
+.ys-loading-content p {
+    color: #5A5A5A;
+    font-size: 1rem;
+}
+
+.ys-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(122, 145, 126, 0.2);
+    border-top-color: #7A917E;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ---- RESULTS ---- */
+.ys-results {
+    padding: 80px 0;
+    background: #FAF8F4;
+}
+
+/* Results Header */
+.ys-results-header {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.ys-results-header .section-title {
+    margin-bottom: 24px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grass Type Badge */
+.ys-grass-type {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.ys-grass-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: rgba(122, 145, 126, 0.1);
+    border: 1px solid rgba(122, 145, 126, 0.25);
+    border-radius: 50px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #2D3B2D;
+}
+
+.ys-grass-badge svg {
+    color: #7A917E;
+}
+
+/* Observations */
+.ys-observations {
+    margin-bottom: 48px;
+}
+
+.ys-observations h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #1A2A1A;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.ys-obs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ys-obs-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(122, 145, 126, 0.15);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.ys-obs-category {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #7A917E;
+    margin-bottom: 8px;
+}
+
+.ys-obs-text {
+    font-size: 0.95rem;
+    color: #5A5A5A;
+    line-height: 1.7;
+}
+
+/* Mowing Tip */
+.ys-mowing-tip {
+    max-width: 700px;
+    margin: 0 auto 48px;
+    padding: 28px;
+    background: rgba(122, 145, 126, 0.08);
+    border-radius: 12px;
+    border-left: 4px solid #7A917E;
+}
+
+.ys-mowing-tip-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1A2A1A;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ys-mowing-tip-text {
+    font-size: 0.95rem;
+    color: #5A5A5A;
+    line-height: 1.7;
+}
+
+/* Recommendations */
+.ys-recommendations {
+    margin-bottom: 48px;
+}
+
+.ys-recommendations h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #1A2A1A;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.ys-recs-list {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ys-rec-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(122, 145, 126, 0.15);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.ys-rec-priority {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-top: 2px;
+}
+
+.ys-rec-priority.high {
+    background: #c0392b;
+}
+
+.ys-rec-priority.medium {
+    background: #C5A55A;
+}
+
+.ys-rec-priority.low {
+    background: #7A917E;
+}
+
+.ys-rec-content {
+    flex: 1;
+}
+
+.ys-rec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1A2A1A;
+    margin-bottom: 6px;
+}
+
+.ys-rec-details {
+    font-size: 0.92rem;
+    color: #5A5A5A;
+    line-height: 1.7;
+}
+
+/* Season Note */
+.ys-season {
+    text-align: center;
+    padding: 24px;
+    background: rgba(122, 145, 126, 0.08);
+    border-radius: 12px;
+    margin-bottom: 48px;
+    font-size: 0.95rem;
+    color: #5A5A5A;
+    line-height: 1.6;
+}
+
+.ys-season strong {
+    color: #1A2A1A;
+}
+
+/* Area Message */
+.ys-area-message {
+    text-align: center;
+    padding: 20px 24px;
+    border-radius: 12px;
+    margin-bottom: 48px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.ys-area-message.in-area {
+    background: rgba(122, 145, 126, 0.1);
+    color: #2D3B2D;
+    border: 1px solid rgba(122, 145, 126, 0.25);
+}
+
+.ys-area-message.out-of-area {
+    background: rgba(197, 165, 90, 0.1);
+    color: #5A5A5A;
+    border: 1px solid rgba(197, 165, 90, 0.25);
+}
+
+/* CTA Section */
+.ys-cta-section {
+    text-align: center;
+    padding: 64px 40px;
+    background: #1A2A1A;
+    border-radius: 16px;
+    margin-bottom: 32px;
+}
+
+.ys-cta-section h2 {
+    color: #FAF8F4;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    margin-bottom: 12px;
+}
+
+.ys-cta-section p {
+    color: rgba(250, 248, 244, 0.7);
+    font-size: 1rem;
+    margin-bottom: 32px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ys-cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Try Again */
+.ys-try-again {
+    text-align: center;
+}
+
+/* ---- ERROR ---- */
+.ys-error {
+    padding: 120px 0;
+    background: #FAF8F4;
+    text-align: center;
+}
+
+.ys-error-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.ys-error-content h2 {
+    font-size: 1.8rem;
+}
+
+.ys-error-content p {
+    color: #5A5A5A;
+    font-size: 1rem;
+    max-width: 400px;
+}
+
+/* ---- NAV ACTIVE STATE ---- */
+.nav-active {
+    color: #C5A55A !important;
+}
+
+.nav-active::after {
+    width: 100% !important;
+}
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+
+@media (max-width: 768px) {
+    .ys-hero {
+        padding: 110px 0 40px;
+    }
+
+    .ys-hero-sub {
+        font-size: 1rem;
+    }
+
+    .ys-upload-section {
+        padding: 0 0 60px;
+    }
+
+    .ys-form {
+        padding: 28px 20px;
+    }
+
+    .ys-dropzone {
+        padding: 36px 16px;
+    }
+
+    .ys-fields-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .ys-rec-card {
+        padding: 20px;
+    }
+
+    .ys-cta-section {
+        padding: 48px 24px;
+    }
+
+    .ys-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ys-cta-buttons .btn {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .ys-loading,
+    .ys-error {
+        padding: 80px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .ys-obs-card {
+        padding: 20px;
+    }
+}

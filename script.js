@@ -1,5 +1,5 @@
 // ================================================
-// TIMELESS LAWN CARE — Landing Page Scripts
+// TIMELESS LAWN CARE — Landing Page Scripts (v2)
 // ================================================
 
 // ---- NAVBAR SCROLL EFFECT ----
@@ -40,6 +40,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// ---- FAQ ACCORDION ----
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const item = button.parentElement;
+        const isActive = item.classList.contains('active');
+
+        // Close all other FAQ items
+        document.querySelectorAll('.faq-item').forEach(faq => {
+            faq.classList.remove('active');
+            faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle the clicked item
+        if (!isActive) {
+            item.classList.add('active');
+            button.setAttribute('aria-expanded', 'true');
+        }
+    });
+});
+
 // ---- SCROLL ANIMATIONS (Intersection Observer) ----
 const observerOptions = {
     threshold: 0.1,
@@ -57,14 +77,14 @@ const observer = new IntersectionObserver((entries) => {
 
 // Apply fade-in to section content
 document.querySelectorAll(
-    '.service-card, .why-card, .review-card, .gallery-item, .contact-form, .contact-info, .promo-content, .area-grid'
+    '.service-card, .why-card, .contact-form, .contact-info, .promo-content, .area-grid, .standard-card, .faq-list, .step-card, .about-content, .about-highlights'
 ).forEach(el => {
     el.classList.add('fade-in');
     observer.observe(el);
 });
 
 // Stagger animation for cards in the same row
-document.querySelectorAll('.services-grid, .why-grid, .reviews-grid').forEach(grid => {
+document.querySelectorAll('.services-grid, .why-grid, .standard-grid, .steps-grid').forEach(grid => {
     const cards = grid.children;
     Array.from(cards).forEach((card, index) => {
         card.style.transitionDelay = `${index * 0.1}s`;
@@ -91,14 +111,15 @@ contactForm.addEventListener('submit', function(e) {
     })
     .then(response => {
         if (response.ok) {
-            btn.textContent = 'Request Sent!';
-            btn.style.background = '#7A917E';
             contactForm.reset();
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.background = '';
-                btn.disabled = false;
-            }, 4000);
+            contactForm.innerHTML = `
+                <div class="form-success">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#7A917E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <h3>We Got Your Request!</h3>
+                    <p>We'll reach out within 2 hours to confirm details. Usually much faster.</p>
+                    <p>Need us sooner? Call or text <a href="tel:8162988348" style="color: #C5A55A; font-weight: 600;">(816) 298-8348</a></p>
+                </div>
+            `;
         } else {
             throw new Error('Form submission failed');
         }
