@@ -207,8 +207,14 @@ export async function onRequestPost(context) {
         if (!claudeResponse.ok) {
             const errText = await claudeResponse.text();
             console.error('Claude API error:', claudeResponse.status, errText);
+            const status = claudeResponse.status;
+            let userMessage = 'Analysis failed. Please try again.';
+            if (status === 401) userMessage = 'API authentication failed. Please contact us.';
+            else if (status === 403) userMessage = 'API access denied. Please contact us.';
+            else if (status === 429) userMessage = 'Too many requests. Please wait a moment and try again.';
+            else if (status === 529) userMessage = 'Service is temporarily busy. Please try again in a minute.';
             return new Response(
-                JSON.stringify({ error: 'Analysis failed. Please try again.' }),
+                JSON.stringify({ error: userMessage }),
                 { status: 502, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
             );
         }
