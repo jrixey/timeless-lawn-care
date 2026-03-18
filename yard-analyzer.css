@@ -259,49 +259,6 @@
     color: #7A917E;
 }
 
-/* Observations */
-.ys-observations {
-    margin-bottom: 48px;
-}
-
-.ys-observations h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    color: #1A2A1A;
-    margin-bottom: 24px;
-    text-align: center;
-}
-
-.ys-obs-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.ys-obs-card {
-    background: #FFFFFF;
-    border: 1px solid rgba(122, 145, 126, 0.15);
-    border-radius: 12px;
-    padding: 24px;
-}
-
-.ys-obs-category {
-    font-size: 0.78rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #7A917E;
-    margin-bottom: 8px;
-}
-
-.ys-obs-text {
-    font-size: 0.95rem;
-    color: #5A5A5A;
-    line-height: 1.7;
-}
-
 /* Mowing Tip */
 .ys-mowing-tip {
     max-width: 700px;
@@ -345,63 +302,34 @@
 .ys-recs-list {
     max-width: 700px;
     margin: 0 auto;
+    list-style: none;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 }
 
-.ys-rec-card {
+.ys-rec-item {
     background: #FFFFFF;
     border: 1px solid rgba(122, 145, 126, 0.15);
-    border-radius: 12px;
-    padding: 24px;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-}
-
-.ys-rec-priority {
-    flex-shrink: 0;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #FFFFFF;
-    margin-top: 2px;
-}
-
-.ys-rec-priority.high {
-    background: #c0392b;
-}
-
-.ys-rec-priority.medium {
-    background: #C5A55A;
-}
-
-.ys-rec-priority.low {
-    background: #7A917E;
-}
-
-.ys-rec-content {
-    flex: 1;
-}
-
-.ys-rec-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #1A2A1A;
-    margin-bottom: 6px;
-}
-
-.ys-rec-details {
-    font-size: 0.92rem;
+    border-radius: 10px;
+    padding: 18px 24px;
+    font-size: 0.95rem;
     color: #5A5A5A;
     line-height: 1.7;
+    position: relative;
+    padding-left: 40px;
+}
+
+.ys-rec-item::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 24px;
+    width: 8px;
+    height: 8px;
+    background: #7A917E;
+    border-radius: 50%;
 }
 
 /* Season Note */
@@ -541,8 +469,8 @@
         gap: 0;
     }
 
-    .ys-rec-card {
-        padding: 20px;
+    .ys-rec-item {
+        padding: 16px 20px 16px 36px;
     }
 
     .ys-cta-section {
@@ -566,7 +494,8 @@
 }
 
 @media (max-width: 480px) {
-    .ys-obs-card {
-        padding: 20px;
+    .ys-rec-item {
+        padding: 14px 16px 14px 32px;
+        font-size: 0.9rem;
     }
 }

@@ -59,7 +59,7 @@
         <div class="container">
             <p class="section-tagline">Free AI-Powered Consultation</p>
             <h1 class="section-title">Free Yard Analysis</h1>
-            <p class="ys-hero-sub">Upload a photo of your yard and we'll tell you what kind of grass you have, how it's doing, and what it needs. Free, instant, no sign-up.</p>
+            <p class="ys-hero-sub">Upload a photo of your yard and we'll tell you what kind of grass you have, how it's doing, and what it needs.</p>
         </div>
     </section>
 
@@ -90,24 +90,23 @@
 
                     <!-- Form Fields -->
                     <div class="ys-fields">
-                        <div class="form-group">
-                            <label for="zipCode">Zip Code <span class="ys-required">*</span></label>
-                            <input type="text" id="zipCode" name="zipCode" required placeholder="64116" maxlength="5" inputmode="numeric" pattern="[0-9]{5}">
-                        </div>
-                        <div class="ys-optional-fields">
-                            <p class="ys-optional-label">Want personalized follow-up? <span class="optional">(Optional)</span></p>
-                            <div class="ys-fields-row">
-                                <div class="form-group">
-                                    <label for="ysName">Name</label>
-                                    <input type="text" id="ysName" name="name" placeholder="John Smith">
-                                </div>
-                                <div class="form-group">
-                                    <label for="ysPhone">Phone</label>
-                                    <input type="tel" id="ysPhone" name="phone" placeholder="(816) 555-1234">
-                                </div>
+                        <div class="ys-fields-row">
+                            <div class="form-group">
+                                <label for="ysName">Name <span class="ys-required">*</span></label>
+                                <input type="text" id="ysName" name="name" required placeholder="John Smith">
                             </div>
                             <div class="form-group">
-                                <label for="ysEmail">Email</label>
+                                <label for="ysPhone">Phone <span class="ys-required">*</span></label>
+                                <input type="tel" id="ysPhone" name="phone" required placeholder="(816) 555-1234">
+                            </div>
+                        </div>
+                        <div class="ys-fields-row">
+                            <div class="form-group">
+                                <label for="zipCode">Zip Code <span class="ys-required">*</span></label>
+                                <input type="text" id="zipCode" name="zipCode" required placeholder="64116" maxlength="5" inputmode="numeric" pattern="[0-9]{5}">
+                            </div>
+                            <div class="form-group">
+                                <label for="ysEmail">Email <span class="optional">(Optional)</span></label>
                                 <input type="email" id="ysEmail" name="email" placeholder="you@email.com">
                             </div>
                         </div>
@@ -145,19 +144,13 @@
             <!-- Grass Type Badge -->
             <div class="ys-grass-type" id="grassType"></div>
 
-            <!-- What We See -->
-            <div class="ys-observations">
-                <h3>What We See</h3>
-                <div class="ys-obs-list" id="observationsList"></div>
-            </div>
-
             <!-- Mowing Tip -->
             <div class="ys-mowing-tip" id="mowingTip"></div>
 
             <!-- Recommendations -->
             <div class="ys-recommendations">
                 <h3>What We'd Recommend</h3>
-                <div class="ys-recs-list" id="recsList"></div>
+                <ul class="ys-recs-list" id="recsList"></ul>
             </div>
 
             <!-- Seasonal Note -->

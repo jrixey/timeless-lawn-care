@@ -86,6 +86,10 @@ zipCodeInput.addEventListener('input', function (e) {
     updateSubmitState();
 });
 
+// ---- NAME & PHONE — update submit state on input ----
+document.getElementById('ysName').addEventListener('input', updateSubmitState);
+document.getElementById('ysPhone').addEventListener('input', updateSubmitState);
+
 // ---- DRAG AND DROP ----
 dropzone.addEventListener('click', () => {
     if (!selectedFile) fileInput.click();
@@ -183,11 +187,16 @@ function clearImage() {
     updateSubmitState();
 }
 
+// ---- DOM: Required fields ----
+const nameInput = document.getElementById('ysName');
+
 // ---- SUBMIT STATE ----
 function updateSubmitState() {
     const hasImage = compressedBase64 !== null;
     const hasZip = zipCodeInput.value.length === 5;
-    submitBtn.disabled = !(hasImage && hasZip);
+    const hasName = nameInput.value.trim().length > 0;
+    const hasPhone = phoneInput.value.replace(/\D/g, '').length >= 10;
+    submitBtn.disabled = !(hasImage && hasZip && hasName && hasPhone);
 }
 
 // ---- FORM SUBMISSION ----
@@ -269,21 +278,6 @@ function displayResults(data, zipCode) {
         grassTypeEl.innerHTML = '';
     }
 
-    // Observations
-    const obsList = document.getElementById('observationsList');
-    obsList.innerHTML = '';
-    if (data.observations && data.observations.length > 0) {
-        data.observations.forEach((obs) => {
-            const card = document.createElement('div');
-            card.className = 'ys-obs-card';
-            card.innerHTML = `
-                <div class="ys-obs-category">${escapeHtml(obs.category)}</div>
-                <div class="ys-obs-text">${escapeHtml(obs.observation)}</div>
-            `;
-            obsList.appendChild(card);
-        });
-    }
-
     // Mowing tip
     const mowingTipEl = document.getElementById('mowingTip');
     if (data.mowingTip) {
@@ -299,22 +293,17 @@ function displayResults(data, zipCode) {
         mowingTipEl.style.display = 'none';
     }
 
-    // Recommendations
+    // Recommendations (now simple string array)
     const recsList = document.getElementById('recsList');
     recsList.innerHTML = '';
     if (data.recommendations && data.recommendations.length > 0) {
-        data.recommendations.forEach((rec, idx) => {
-            const priorityLabel = rec.priority || 'medium';
-            const card = document.createElement('div');
-            card.className = 'ys-rec-card';
-            card.innerHTML = `
-                <div class="ys-rec-priority ${priorityLabel}">${idx + 1}</div>
-                <div class="ys-rec-content">
-                    <div class="ys-rec-title">${escapeHtml(rec.title || '')}</div>
-                    <div class="ys-rec-details">${escapeHtml(rec.details || rec.recommendation || '')}</div>
-                </div>
-            `;
-            recsList.appendChild(card);
+        data.recommendations.forEach((rec) => {
+            const li = document.createElement('li');
+            li.className = 'ys-rec-item';
+            // Handle both string format (v3) and object format (v2 fallback)
+            const text = typeof rec === 'string' ? rec : (rec.details || rec.title || '');
+            li.textContent = text;
+            recsList.appendChild(li);
         });
     }
 
