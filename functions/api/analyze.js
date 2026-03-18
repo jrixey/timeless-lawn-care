@@ -108,7 +108,7 @@ export async function onRequestPost(context) {
 
     try {
         const body = await request.json();
-        const { image, mediaType, zipCode, name, phone, email } = body;
+        const { image, mediaType, zipCode, name, phone, email, address, consent } = body;
 
         // Validate required fields
         if (!image || !mediaType) {
@@ -239,13 +239,15 @@ export async function onRequestPost(context) {
         // Log lead to Formspree (fire and forget)
         const formspreeId = env.FORMSPREE_ID || 'xaqdbwbp';
         logLead(formspreeId, {
-            _subject: `Yard Analyzer Lead: ${zipCode} (Internal Score: ${analysisResult.internalScore || 'N/A'})`,
-            zipCode,
-            internalScore: analysisResult.internalScore,
-            grassType: analysisResult.grassType || 'Unknown',
+            _subject: `Yard Analyzer Lead: ${name || 'Unknown'} - ${zipCode} (Score: ${analysisResult.internalScore || 'N/A'})`,
             name: name || 'Not provided',
             phone: phone || 'Not provided',
             email: email || 'Not provided',
+            address: address || 'Not provided',
+            zipCode,
+            internalScore: analysisResult.internalScore,
+            grassType: analysisResult.grassType || 'Unknown',
+            consent: consent ? 'Yes - opted in' : 'No',
             timestamp: new Date().toISOString(),
             source: 'Yard Analyzer Tool',
         });

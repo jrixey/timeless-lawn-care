@@ -102,13 +102,23 @@
                         </div>
                         <div class="ys-fields-row">
                             <div class="form-group">
+                                <label for="ysEmail">Email <span class="ys-required">*</span></label>
+                                <input type="email" id="ysEmail" name="email" required placeholder="you@email.com">
+                            </div>
+                            <div class="form-group">
                                 <label for="zipCode">Zip Code <span class="ys-required">*</span></label>
                                 <input type="text" id="zipCode" name="zipCode" required placeholder="64116" maxlength="5" inputmode="numeric" pattern="[0-9]{5}">
                             </div>
-                            <div class="form-group">
-                                <label for="ysEmail">Email <span class="optional">(Optional)</span></label>
-                                <input type="email" id="ysEmail" name="email" placeholder="you@email.com">
-                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ysAddress">Property Address <span class="ys-required">*</span></label>
+                            <input type="text" id="ysAddress" name="address" required placeholder="123 Main St, Gladstone, MO">
+                        </div>
+                        <div class="ys-consent">
+                            <label class="ys-consent-label">
+                                <input type="checkbox" id="ysConsent" name="consent" required>
+                                <span>I agree to receive texts and emails from Timeless Lawn Care about my yard analysis and services. Msg & data rates may apply. Reply STOP to opt out anytime.</span>
+                            </label>
                         </div>
                     </div>
 
@@ -159,12 +169,21 @@
             <!-- Service Area Message -->
             <div class="ys-area-message" id="areaMessage" style="display: none;"></div>
 
+            <!-- Email Results -->
+            <div class="ys-email-results">
+                <button type="button" class="btn btn-secondary" id="emailResultsBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Email Me My Results
+                </button>
+                <p class="ys-email-sent" id="emailSentMsg" style="display: none;">Sent! Check your inbox.</p>
+            </div>
+
             <!-- CTA -->
             <div class="ys-cta-section">
                 <h2>Want Hands-On Help?</h2>
                 <p>We'll come take a look in person, free of charge. We serve the full Northland KC area.</p>
                 <div class="ys-cta-buttons">
-                    <a href="index.html#contact" class="btn btn-primary">Request a Free Estimate</a>
+                    <a href="index.html#contact" class="btn btn-primary" id="contactLink">Request a Free Estimate</a>
                     <a href="tel:8162988348" class="btn btn-secondary btn-light">Call/Text (816) 298-8348</a>
                 </div>
             </div>

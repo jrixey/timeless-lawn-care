@@ -148,3 +148,23 @@ if (phoneInput) {
         e.target.value = value;
     });
 }
+
+// ---- PRE-FILL FROM YARD ANALYZER ----
+// When user clicks "Request a Free Estimate" from analyzer results,
+// their info is passed as URL params so they don't re-enter it.
+(function prefillFromParams() {
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has('name')) return;
+
+    const fields = { name: 'name', phone: 'phone', email: 'email', address: 'address' };
+    Object.entries(fields).forEach(([param, id]) => {
+        const val = params.get(param);
+        const el = document.getElementById(id);
+        if (val && el) el.value = val;
+    });
+
+    // Clean URL without reloading
+    if (window.history.replaceState) {
+        window.history.replaceState({}, '', window.location.pathname + window.location.hash);
+    }
+})();

@@ -41,6 +41,8 @@ const errorSection = document.getElementById('errorSection');
 let selectedFile = null;
 let compressedBase64 = null;
 let compressedMediaType = null;
+let lastAnalysisData = null;
+let lastUserInfo = null;
 
 // ---- NAVBAR (same as main site) ----
 const navbar = document.getElementById('navbar');
@@ -86,9 +88,12 @@ zipCodeInput.addEventListener('input', function (e) {
     updateSubmitState();
 });
 
-// ---- NAME & PHONE — update submit state on input ----
+// ---- NAME, PHONE, EMAIL, ADDRESS, CONSENT — update submit state on input ----
 document.getElementById('ysName').addEventListener('input', updateSubmitState);
 document.getElementById('ysPhone').addEventListener('input', updateSubmitState);
+document.getElementById('ysEmail').addEventListener('input', updateSubmitState);
+document.getElementById('ysAddress').addEventListener('input', updateSubmitState);
+document.getElementById('ysConsent').addEventListener('change', updateSubmitState);
 
 // ---- DRAG AND DROP ----
 dropzone.addEventListener('click', () => {
@@ -189,6 +194,9 @@ function clearImage() {
 
 // ---- DOM: Required fields ----
 const nameInput = document.getElementById('ysName');
+const emailInput = document.getElementById('ysEmail');
+const addressInput = document.getElementById('ysAddress');
+const consentCheckbox = document.getElementById('ysConsent');
 
 // ---- SUBMIT STATE ----
 function updateSubmitState() {
@@ -196,7 +204,10 @@ function updateSubmitState() {
     const hasZip = zipCodeInput.value.length === 5;
     const hasName = nameInput.value.trim().length > 0;
     const hasPhone = phoneInput.value.replace(/\D/g, '').length >= 10;
-    submitBtn.disabled = !(hasImage && hasZip && hasName && hasPhone);
+    const hasEmail = emailInput.value.trim().length > 0 && emailInput.validity.valid;
+    const hasAddress = addressInput.value.trim().length > 0;
+    const hasConsent = consentCheckbox.checked;
+    submitBtn.disabled = !(hasImage && hasZip && hasName && hasPhone && hasEmail && hasAddress && hasConsent);
 }
 
 // ---- FORM SUBMISSION ----
@@ -225,6 +236,8 @@ yardForm.addEventListener('submit', async function (e) {
         name: document.getElementById('ysName').value.trim(),
         phone: document.getElementById('ysPhone').value.trim(),
         email: document.getElementById('ysEmail').value.trim(),
+        address: document.getElementById('ysAddress').value.trim(),
+        consent: document.getElementById('ysConsent').checked,
     };
 
     try {
@@ -262,6 +275,29 @@ function showSection(section) {
 
 // ---- DISPLAY RESULTS ----
 function displayResults(data, zipCode) {
+    // Store for email results button
+    lastAnalysisData = data;
+    lastUserInfo = {
+        name: nameInput.value.trim(),
+        phone: phoneInput.value.trim(),
+        email: emailInput.value.trim(),
+        address: addressInput.value.trim(),
+    };
+
+    // Reset email sent state
+    document.getElementById('emailSentMsg').style.display = 'none';
+    document.getElementById('emailResultsBtn').disabled = false;
+
+    // Pre-fill contact link with user info
+    const contactLink = document.getElementById('contactLink');
+    const params = new URLSearchParams({
+        name: lastUserInfo.name,
+        phone: lastUserInfo.phone,
+        email: lastUserInfo.email,
+        address: lastUserInfo.address,
+    });
+    contactLink.href = `index.html?${params.toString()}#contact`;
+
     // Summary
     document.getElementById('resultsSummary').textContent = data.summary || '';
 
@@ -355,5 +391,64 @@ document.getElementById('errorRetryBtn').addEventListener('click', () => {
 function resetForm() {
     clearImage();
     yardForm.reset();
+    lastAnalysisData = null;
+    lastUserInfo = null;
     updateSubmitState();
 }
+
+// ---- EMAIL RESULTS ----
+document.getElementById('emailResultsBtn').addEventListener('click', async function () {
+    if (!lastAnalysisData || !lastUserInfo || !lastUserInfo.email) return;
+
+    const btn = this;
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    // Build a plain-text summary of the results
+    const recs = (lastAnalysisData.recommendations || [])
+        .map((r, i) => `  ${i + 1}. ${typeof r === 'string' ? r : (r.details || r.title || '')}`)
+        .join('\n');
+
+    const body = [
+        `Hi ${lastUserInfo.name},`,
+        '',
+        `Here are your yard analysis results from Timeless Lawn Care:`,
+        '',
+        `SUMMARY: ${lastAnalysisData.summary || ''}`,
+        '',
+        `GRASS TYPE: ${lastAnalysisData.grassType || 'Not identified'}`,
+        '',
+        `MOWING ADVICE: ${lastAnalysisData.mowingTip || ''}`,
+        '',
+        `RECOMMENDATIONS:`,
+        recs,
+        '',
+        lastAnalysisData.seasonalNote ? `RIGHT NOW IN KC: ${lastAnalysisData.seasonalNote}` : '',
+        '',
+        '---',
+        'Want hands-on help? Call or text us at (816) 298-8348',
+        'or visit timelesslawncarellc.com to book your free first mow.',
+        '',
+        'Timeless Lawn Care | North Kansas City & the Northland',
+    ].filter(Boolean).join('\n');
+
+    try {
+        await fetch('https://formspree.io/f/xaqdbwbp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({
+                _subject: `Your Yard Analysis Results - Timeless Lawn Care`,
+                _replyto: 'timelesslawncarellc@pm.me',
+                email: lastUserInfo.email,
+                name: lastUserInfo.name,
+                message: body,
+            }),
+        });
+        document.getElementById('emailSentMsg').style.display = '';
+        btn.textContent = 'Sent!';
+    } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Email Me My Results';
+        alert('Could not send email. Please try again.');
+    }
+});

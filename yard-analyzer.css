@@ -143,17 +143,26 @@
     font-weight: 600;
 }
 
-.ys-optional-fields {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(122, 145, 126, 0.15);
+.ys-consent {
+    margin-top: 16px;
 }
 
-.ys-optional-label {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #5A5A5A;
-    margin-bottom: 16px;
+.ys-consent-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.82rem;
+    color: #777;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.ys-consent-label input[type="checkbox"] {
+    margin-top: 2px;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    accent-color: #7A917E;
 }
 
 .ys-fields-row {
@@ -368,6 +377,25 @@
     background: rgba(197, 165, 90, 0.1);
     color: #5A5A5A;
     border: 1px solid rgba(197, 165, 90, 0.25);
+}
+
+/* Email Results */
+.ys-email-results {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.ys-email-results .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ys-email-sent {
+    margin-top: 10px;
+    font-size: 0.88rem;
+    color: #7A917E;
+    font-weight: 500;
 }
 
 /* CTA Section */
