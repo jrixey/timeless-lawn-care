@@ -315,10 +315,6 @@ function displayResults(data, zipCode) {
     // Log lead to Formspree (fire and forget, from browser)
     logLeadToFormspree(data, lastUserInfo, zipCode);
 
-    // Reset email sent state
-    document.getElementById('emailSentMsg').style.display = 'none';
-    document.getElementById('emailResultsBtn').disabled = false;
-
     // Pre-fill contact link with user info
     const contactLink = document.getElementById('contactLink');
     const params = new URLSearchParams({
@@ -426,39 +422,3 @@ function resetForm() {
     lastUserInfo = null;
     updateSubmitState();
 }
-
-// ---- EMAIL RESULTS ----
-document.getElementById('emailResultsBtn').addEventListener('click', async function () {
-    if (!lastAnalysisData || !lastUserInfo || !lastUserInfo.email) return;
-
-    const btn = this;
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-
-    try {
-        const response = await fetch('/api/send-results', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                email: lastUserInfo.email,
-                name: lastUserInfo.name,
-                summary: lastAnalysisData.summary || '',
-                grassType: lastAnalysisData.grassType || '',
-                mowingTip: lastAnalysisData.mowingTip || '',
-                recommendations: lastAnalysisData.recommendations || [],
-                seasonalNote: lastAnalysisData.seasonalNote || '',
-            }),
-        });
-
-        if (!response.ok) {
-            throw new Error('Email send failed');
-        }
-
-        document.getElementById('emailSentMsg').style.display = '';
-        btn.textContent = 'Sent!';
-    } catch (err) {
-        btn.disabled = false;
-        btn.textContent = 'Email Me My Results';
-        alert('Could not send email. Please try again.');
-    }
-});
