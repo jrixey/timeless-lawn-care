@@ -236,23 +236,10 @@ export async function onRequestPost(context) {
             );
         }
 
-        // Log lead to Formspree (fire and forget)
-        const formspreeId = env.FORMSPREE_ID || 'xaqdbwbp';
-        logLead(formspreeId, {
-            _subject: `Yard Analyzer Lead: ${name || 'Unknown'} - ${zipCode} (Score: ${analysisResult.internalScore || 'N/A'})`,
-            name: name || 'Not provided',
-            phone: phone || 'Not provided',
-            email: email || 'Not provided',
-            address: address || 'Not provided',
-            zipCode,
-            internalScore: analysisResult.internalScore,
-            grassType: analysisResult.grassType || 'Unknown',
-            consent: consent ? 'Yes - opted in' : 'No',
-            timestamp: new Date().toISOString(),
-            source: 'Yard Analyzer Tool',
-        });
+        // Lead logging moved to frontend (Formspree blocks server-side requests)
+        // Frontend logs to Formspree from browser after results display
 
-        // Strip internalScore before sending to client (owner-only data, logged to Formspree)
+        // Strip internalScore before sending to client
         const { internalScore, ...clientResult } = analysisResult;
 
         return new Response(JSON.stringify(clientResult), {
@@ -281,18 +268,4 @@ export async function onRequestOptions() {
     });
 }
 
-// Fire-and-forget lead logging to Formspree
-async function logLead(formspreeId, data) {
-    try {
-        await fetch(`https://formspree.io/f/${formspreeId}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
-    } catch (err) {
-        console.error('Formspree log error:', err);
-    }
-}
+// Lead logging handled by frontend (Formspree requires browser-origin requests)

@@ -273,6 +273,34 @@ function showSection(section) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// ---- LOG LEAD TO FORMSPREE (from browser, not server) ----
+function logLeadToFormspree(data, userInfo, zipCode) {
+    const recs = (data.recommendations || [])
+        .map((r, i) => `${i + 1}. ${typeof r === 'string' ? r : (r.details || r.title || '')}`)
+        .join('\n');
+
+    fetch('https://formspree.io/f/xaqdbwbp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+            _subject: `Yard Analyzer Lead: ${userInfo.name} - ${zipCode}`,
+            name: userInfo.name,
+            phone: userInfo.phone,
+            email: userInfo.email,
+            address: userInfo.address,
+            zipCode: zipCode,
+            grassType: data.grassType || 'Unknown',
+            summary: data.summary || '',
+            recommendations: recs,
+            mowingTip: data.mowingTip || '',
+            seasonalNote: data.seasonalNote || '',
+            consent: 'Yes - opted in',
+            timestamp: new Date().toISOString(),
+            source: 'Yard Analyzer Tool',
+        }),
+    }).catch((err) => console.error('Lead log error:', err));
+}
+
 // ---- DISPLAY RESULTS ----
 function displayResults(data, zipCode) {
     // Store for email results button
@@ -283,6 +311,9 @@ function displayResults(data, zipCode) {
         email: emailInput.value.trim(),
         address: addressInput.value.trim(),
     };
+
+    // Log lead to Formspree (fire and forget, from browser)
+    logLeadToFormspree(data, lastUserInfo, zipCode);
 
     // Reset email sent state
     document.getElementById('emailSentMsg').style.display = 'none';
@@ -404,46 +435,25 @@ document.getElementById('emailResultsBtn').addEventListener('click', async funct
     btn.disabled = true;
     btn.textContent = 'Sending...';
 
-    // Build a plain-text summary of the results
-    const recs = (lastAnalysisData.recommendations || [])
-        .map((r, i) => `  ${i + 1}. ${typeof r === 'string' ? r : (r.details || r.title || '')}`)
-        .join('\n');
-
-    const body = [
-        `Hi ${lastUserInfo.name},`,
-        '',
-        `Here are your yard analysis results from Timeless Lawn Care:`,
-        '',
-        `SUMMARY: ${lastAnalysisData.summary || ''}`,
-        '',
-        `GRASS TYPE: ${lastAnalysisData.grassType || 'Not identified'}`,
-        '',
-        `MOWING ADVICE: ${lastAnalysisData.mowingTip || ''}`,
-        '',
-        `RECOMMENDATIONS:`,
-        recs,
-        '',
-        lastAnalysisData.seasonalNote ? `RIGHT NOW IN KC: ${lastAnalysisData.seasonalNote}` : '',
-        '',
-        '---',
-        'Want hands-on help? Call or text us at (816) 298-8348',
-        'or visit timelesslawncarellc.com to book your free first mow.',
-        '',
-        'Timeless Lawn Care | North Kansas City & the Northland',
-    ].filter(Boolean).join('\n');
-
     try {
-        await fetch('https://formspree.io/f/xaqdbwbp', {
+        const response = await fetch('/api/send-results', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                _subject: `Your Yard Analysis Results - Timeless Lawn Care`,
-                _replyto: 'timelesslawncarellc@pm.me',
                 email: lastUserInfo.email,
                 name: lastUserInfo.name,
-                message: body,
+                summary: lastAnalysisData.summary || '',
+                grassType: lastAnalysisData.grassType || '',
+                mowingTip: lastAnalysisData.mowingTip || '',
+                recommendations: lastAnalysisData.recommendations || [],
+                seasonalNote: lastAnalysisData.seasonalNote || '',
             }),
         });
+
+        if (!response.ok) {
+            throw new Error('Email send failed');
+        }
+
         document.getElementById('emailSentMsg').style.display = '';
         btn.textContent = 'Sent!';
     } catch (err) {
