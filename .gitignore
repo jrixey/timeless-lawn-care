@@ -1,0 +1,15 @@
+# Downloaded files -- not code, don't belong in the repo
+*.pdf
+*.csv
+
+# Environment / secrets -- never push API keys
+.env
+.env.*
+
+# Old backup files -- Git tracks history, no need for manual copies
+index-v1.html
+script-v1.js
+styles-v1.css
+
+# Build instructions -- internal docs, not deployed
+yard-analyzer/
