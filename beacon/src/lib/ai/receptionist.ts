@@ -41,7 +41,14 @@ const SERVICE_LABEL: Record<ServiceType, string> = {
   other: "service",
 };
 
-const REQUIRED: (keyof Slots)[] = ["service", "name", "phone", "preferredTime"];
+const BASE_REQUIRED: (keyof Slots)[] = ["service", "name", "phone", "preferredTime"];
+
+/** Emergencies don't need a preferred time — we grab the earliest opening. */
+function requiredFields(slots: Slots): (keyof Slots)[] {
+  return slots.urgency === "emergency"
+    ? ["service", "name", "phone"]
+    : BASE_REQUIRED;
+}
 
 function isConfirm(t: string): boolean {
   return /\b(yes|yeah|yep|sure|sounds good|that works|works for me|ok|okay|book it|confirm|perfect|great)\b/i.test(
@@ -94,7 +101,7 @@ async function extract(adapters: Adapters, userText: string): Promise<Slots> {
 }
 
 function nextQuestion(slots: Slots): { field: keyof Slots; text: string } {
-  const missing = REQUIRED.find((f) => !slots[f])!;
+  const missing = requiredFields(slots).find((f) => !slots[f])!;
   switch (missing) {
     case "service":
       return { field: "service", text: "What can we help you with today — is it heating, cooling, or something else?" };
@@ -169,7 +176,7 @@ export async function runTurn(
   }
 
   // Still collecting required info?
-  const missing = REQUIRED.find((f) => !slots[f]);
+  const missing = requiredFields(slots).find((f) => !slots[f]);
   if (missing) {
     const q = nextQuestion(slots);
     return {

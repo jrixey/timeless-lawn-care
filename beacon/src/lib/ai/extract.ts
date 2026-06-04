@@ -90,6 +90,9 @@ function detectAddress(raw: string): string | null {
 }
 
 function detectPreferredTime(raw: string): string | null {
+  if (/\b(asap|as soon as possible|right away|first available|earliest)\b/i.test(raw)) {
+    return "as soon as possible";
+  }
   const m = raw.match(
     /\b((this|next|tomorrow|today)?\s?(morning|afternoon|evening|am|pm)|(mon|tue|wed|thu|fri|sat|sun)\w*|tomorrow|today|\d{1,2}(:\d{2})?\s?(am|pm))\b/i,
   );
